@@ -1,0 +1,56 @@
+{
+  "status": 0,
+  "msg": "",
+  "data": {
+    "pages": [
+      {
+        "url": "/",
+        "redirect": "/index/1"
+      },
+      {
+        "label": "社区养老综合服务平台",
+        "children": [
+          {
+            "label": "居家长者管理",
+            "url": "index",
+            "schema": {
+              "type": "page",
+              "title": "居家长者管理",
+              "body": "居家长者管理"
+            },
+            "children": [
+              {
+                "label": "新增入住登记",
+                "url": "/crud/new1",
+                "schemaApi": "get:/pages/crud-list.json"
+              },
+              {
+                "label": "已入住老人列表",
+                "url": "/crud/new2",
+                "schemaApi": "get:/pages/crud-list1.json"
+              },
+              {
+                "label": "新增能力评估",
+                "url": "3",
+                "schema": {
+                  "type": "page",
+                  "title": "新增能力评估",
+                  "body": "新增能力评估"
+                }
+              },
+              {
+                "label": "长者能力评估记录",
+                "url": "4",
+                "schema": {
+                  "type": "page",
+                  "title": "长者能力评估记录",
+                  "body": "长者能力评估记录"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

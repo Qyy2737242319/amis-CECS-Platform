@@ -8,7 +8,7 @@
       "wrapWithPanel": false,
       "api": {
         "method": "post",
-        "url": "http://localhost:3003/posts",
+        "url": "http://localhost:3000/requests",
         "data": {
           "姓名": "${combo1.older_name}",
           "手机号码": "${combo1.older_tele}",

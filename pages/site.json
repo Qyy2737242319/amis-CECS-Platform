@@ -31,12 +31,8 @@
               },
               {
                 "label": "新增能力评估",
-                "url": "3",
-                "schema": {
-                  "type": "page",
-                  "title": "新增能力评估",
-                  "body": "新增能力评估"
-                }
+                "url": "/crud/new3",
+                "schemaApi": "get:/pages/crud-list2.json"
               },
               {
                 "label": "长者能力评估记录",

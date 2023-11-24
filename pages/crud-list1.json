@@ -8,15 +8,7 @@
       "wrapWithPanel": false,
       "api": {
         "method": "post",
-        "url": "http://localhost:3000/requests",
-        "data": {
-          "姓名": "${combo1.older_name}",
-          "手机号码": "${combo1.older_tele}",
-          "省份": "${combo1.select_1}",
-          "城市": "${combo1.select_2}",
-          "区/县": "${combo1.select_3}",
-          "具体地址": "${combo1.select_4}"
-        }
+        "url": "http://127.0.0.1:4523/m1/3615079-0-default/requiresend"
       },
       "body": [
         {
@@ -41,7 +33,8 @@
                       "name": "older_tele",
                       "label": "手机号码：",
                       "placeholder": "请输入",
-                      "type": "input-number"
+                      "type": "input-number",
+                      "showSteps": false
                     },
                     {
                       "type": "select",
@@ -159,7 +152,12 @@
     {
       "type": "crud",
       "name": "sample",
-      "api": "${API_HOST}/api/amis-mock/sample?page=${page}&perPage=${perPage}&keywords=${keywords}",
+      "api": {
+        "method": "get",
+        "url": "http://127.0.0.1:4523/m1/3615079-0-default/add1",
+        "data": {
+        }
+      },
       "bulkActions": [
         {
           "label": "批量修改",

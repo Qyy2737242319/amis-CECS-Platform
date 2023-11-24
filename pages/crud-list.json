@@ -16,7 +16,10 @@
                     "type": "form",
                     "title": "对象基本信息",
                     "submitText": "",
-                    "api": "http://localhost:3000/add",
+                    "api": {
+                      "method": "post",
+                      "url": "http://127.0.0.1:4523/m1/3615079-0-default/add"
+                    },
                     "columnCount": 4,
                     "body": [
                       {
@@ -34,6 +37,7 @@
                       {
                         "name": "telephone",
                         "type": "input-number",
+                        "showSteps": false,
                         "placeholder": "请输入",
                         "label": "联系电话："
                       },
@@ -58,7 +62,7 @@
                         ]
                       },
                       {
-                        "name": "hobbies",
+                        "name": "hobby",
                         "type": "input-text",
                         "placeholder": "请输入",
                         "label": "兴趣爱好："
@@ -116,7 +120,7 @@
                         ]
                       },
                       {
-                        "name": "id",
+                        "name": "idcard",
                         "type": "input-text",
                         "placeholder": "请输入身份证号码",
                         "label": "身份证号：",
@@ -124,7 +128,7 @@
                           "change": {
                             "actions": [
                               {
-                                "componentName": "gender",
+                                "componentName": "sex",
                                 "args": {
                                   "value": "${IF(number(event.data.value)%10%2===0,'男','女')}"
                                 },
@@ -181,7 +185,7 @@
                         ]
                       },
                       {
-                        "name": "gender",
+                        "name": "sex",
                         "type": "input-text",
                         "placeholder": "由身份证号自动生成",
                         "label": "性别："
@@ -215,12 +219,14 @@
                       {
                         "name": "income",
                         "type": "input-number",
+                        "showSteps": false,
                         "placeholder": "请输入",
                         "label": "月收入金额："
                       },
                       {
                         "name": "age",
                         "type": "input-number",
+                        "showSteps": false,
                         "placeholder": "请输入",
                         "label": "年龄："
                       },
@@ -229,6 +235,26 @@
                         "type": "select",
                         "placeholder": "请选择",
                         "label": "婚姻状况：",
+                        "options": [
+                          {
+                            "label": "A",
+                            "value": "a"
+                          },
+                          {
+                            "label": "B",
+                            "value": "b"
+                          },
+                          {
+                            "label": "C",
+                            "value": "c"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "medicalensurance",
+                        "type": "select",
+                        "placeholder": "请选择",
+                        "label": "医保情况：",
                         "options": [
                           {
                             "label": "A",
@@ -339,51 +365,84 @@
                   {"type": "form",
                     "title": "托养人基本信息",
                     "submitText": "",
+                    "api": "http://127.0.0.1:4523/m1/3615079-0-default/getlist2",
                     "columnCount": 4,
                     "body": [
                       {
-                        "type": "form",
-                        "wrapWithPanel": false,
-                        "api": "http://localhost:3000/add1",
-                        "columnCount": 4,
-                        "body": [
-                          {
-                            "type": "input-text",
-                            "name": "name",
-                            "placeholder": "张三",
-                            "label": "姓名："
-                          },
-                          {
-                            "type": "input-text",
-                            "name": "relation",
-                            "placeholder": "请输入",
-                            "label": "关系："
-                          },
-                          {
-                            "type": "input-number",
-                            "name": "id",
-                            "placeholder": "请输入",
-                            "label": "身份证号："
-                          },
-                          {
-                            "type": "input-text",
-                            "name": "work",
-                            "placeholder": "请输入",
-                            "label": "工作单位："
-                          },
-                          {
-                            "type": "input-text",
-                            "name": "home",
-                            "placeholder": "请输入",
-                            "label": "家庭住址："
-                          },
-                          {
-                            "type": "input-number",
-                            "name": "telephone",
-                            "placeholder": "请输入",
-                            "label": "联系电话："
-                          }
-                        ]
+                        "type": "input-text",
+                        "name": "mname",
+                        "placeholder": "张三",
+                        "label": "主托养人姓名："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "mrelationship",
+                        "placeholder": "请输入",
+                        "label": "主托养人关系："
+                      },
+                      {
+                        "type": "input-number",
+                        "showSteps": false,
+                        "name": "midcard",
+                        "placeholder": "请输入",
+                        "label": "主托养人身份证号："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "mcompany",
+                        "placeholder": "请输入",
+                        "label": "主托养人工作单位："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "maddress",
+                        "placeholder": "请输入",
+                        "label": "主托养人家庭住址："
+                      },
+                      {
+                        "type": "input-number",
+                        "showSteps": false,
+                        "name": "mphonenum",
+                        "placeholder": "请输入",
+                        "label": "主托养人联系电话："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "dname",
+                        "placeholder": "张三",
+                        "label": "副托养人姓名："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "drelationship",
+                        "placeholder": "请输入",
+                        "label": "副托养人关系："
+                      },
+                      {
+                        "type": "input-number",
+                        "showSteps": false,
+                        "name": "didcard",
+                        "placeholder": "请输入",
+                        "label": "副托养人身份证号："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "dcompany",
+                        "placeholder": "请输入",
+                        "label": "副托养人工作单位："
+                      },
+                      {
+                        "type": "input-text",
+                        "name": "daddress",
+                        "placeholder": "请输入",
+                        "label": "副托养人家庭住址："
+                      },
+                      {
+                        "type": "input-number",
+                        "showSteps": false,
+                        "name": "dphonenum",
+                        "placeholder": "请输入",
+                        "label": "副托养人联系电话："
                       }
                     ],
                     "actions": [
@@ -401,7 +460,7 @@
                 "body": [
                   "最后一步了，确认要提交吗？"
                 ],
-                "api": "http://localhost:3003/success"
+                "api": "http://127.0.0.1:4523/m1/3615079-0-default/getlist3"
               }
             ]
           }
